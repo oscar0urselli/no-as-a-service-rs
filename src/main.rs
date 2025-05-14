@@ -51,6 +51,6 @@ async fn handler(
     let mut rng = rand::rng();
 
     Json(ReasonRes {
-        reason: mtx.reasons.get(rng.random_range(0..upper_bound)).unwrap().clone().no
+        reason: mtx.reasons.get(rng.random_range(..upper_bound)).unwrap().clone().no
     })
 }
