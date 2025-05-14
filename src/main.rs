@@ -6,17 +6,12 @@ use axum::{
     extract::State, routing::get, Json, Router, debug_handler
 };
 
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 use tokio::sync::Mutex;
 
-#[derive(Deserialize, Clone)]
-#[serde(transparent)]
-struct Reason {
-    no: String
-}
 
 struct AppState {
-    reasons: Vec<Reason>
+    reasons: Vec<String>
 } 
 
 #[tokio::main]
@@ -51,6 +46,6 @@ async fn handler(
     let mut rng = rand::rng();
 
     Json(ReasonRes {
-        reason: mtx.reasons.get(rng.random_range(..upper_bound)).unwrap().clone().no
+        reason: mtx.reasons.get(rng.random_range(..upper_bound)).unwrap().clone()
     })
 }
