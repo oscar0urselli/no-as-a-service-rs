@@ -1,2 +1,3 @@
 # no-as-a-service-rs
-Ruse version of hotheadhacker/no-as-a-service
+Rust version using Axum of [no-as-a-service](https://github.com/hotheadhacker/no-as-a-service).
+
